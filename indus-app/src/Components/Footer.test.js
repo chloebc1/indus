@@ -1,10 +1,10 @@
 import { screen, render } from '@testing-library/react'
 import { CompanyName } from './Constants'
-import Header from './Header'
+import Footer from './Footer'
 
-describe('header', () => {
+describe('footer', () => {
   test("should display company name", () => {
-    render(<Header />)
+    render(<Footer />)
     expect(screen.getByText(CompanyName)).toBeInTheDocument()
   });
 })

@@ -1,2 +1,5 @@
 export const CompanyName = 'Indus Car Max'
 export const Home = 'Home'
+export const Search = 'Search'
+export const Model = 'Model'
+export const Year = 'Year'
