@@ -7,7 +7,7 @@ const VehicleSearchForm = ({models}) => {
 
   return (<div className="vehicleSearchForm">
     <select title={Model} onChange={(event) => {setModel(event.target.value)}}>
-      <option value="">Please select a model</option>
+      <option value="">model</option>
       {Object.entries(models).map(([make, modelList]) => {
         return (
           <optgroup label = {make}>
@@ -17,6 +17,7 @@ const VehicleSearchForm = ({models}) => {
       })}
     </select> 
     <select title={Year} onChange = {(event) => {setYear(event.target.value)}}>
+      <option value="">year</option>
       <option value={2015}>2015</option>
       <option value={2016}>2016</option>
       <option value={2017}>2017</option>
