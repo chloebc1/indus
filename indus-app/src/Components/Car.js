@@ -1,8 +1,6 @@
-import tacoma from '../images/tacoma.jpeg';
-
-const Car = ({year, make, model, mileage, price}) => (
+const Car = ({year, make, model, image, price}) => (
     <div style={{display: 'flex', height: '200px', alignItems: 'center', paddingRight: '16px'}}>
-        <img src={tacoma} alt={model} style={{height: '100%'}}/>
+        <img src={image} alt={model} style={{height: '100%'}}/>
         <div className="summary" style={{textAlign: 'left', minWidth: '300px', padding: '0 16px'}}>
             <div style={{marginBottom: '20px'}}><b>${price}</b></div>
             <div>Make: {make}</div>
