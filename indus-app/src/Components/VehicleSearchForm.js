@@ -1,8 +1,13 @@
+import { FilterContext } from '../Context/FilterContext'
 import {Search, Model, Year} from './Constants'
+import {useContext} from 'react'
 
-const VehicleSearchForm = ({models}) => (
-  <div className="vehicleSearchForm">
-    <select title={Model}>
+const VehicleSearchForm = ({models}) => {
+  const {setModel, setYear} = useContext(FilterContext)
+
+  return (<div className="vehicleSearchForm">
+    <select title={Model} onChange={(event) => {setModel(event.target.value)}}>
+      <option value="">Please select a model</option>
       {Object.entries(models).map(([make, modelList]) => {
         return (
           <optgroup label = {make}>
@@ -11,16 +16,16 @@ const VehicleSearchForm = ({models}) => (
         )
       })}
     </select> 
-    <select title={Year}>
-      <option value="2015">2015</option>
-      <option value="2016">2016</option>
-      <option value="2017">2017</option>
-      <option value="2018">2018</option>
-      <option value="2019">2019</option>
-      <option value="2020">2020</option> 
+    <select title={Year} onChange = {(event) => {setYear(event.target.value)}}>
+      <option value={2015}>2015</option>
+      <option value={2016}>2016</option>
+      <option value={2017}>2017</option>
+      <option value={2018}>2018</option>
+      <option value={2019}>2019</option>
+      <option value={2020}>2020</option> 
     </select>
     <button title={Search}>{Search}</button>
-  </div>
-  )
+  </div>)
+}
 
 export default VehicleSearchForm
