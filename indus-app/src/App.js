@@ -6,7 +6,7 @@ import Footer from './Components/Footer'
 import CarList from './Components/CarList'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
-import {FilterContext} from 'Context/FilterContext'
+import {FilterProvider} from './Context/FilterContext'
 
 function App() {
   const [cars, setCars] = useState([]) 
@@ -37,13 +37,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header className="App-header"/>
-      <Navigation/>
-      <div style={{display: 'flex', maxWidth: '100vw'}}>
-        <CarList cars={cars} />
-        <VehicleSearchForm models={models}/>
-      </div>
-      <Footer/>
+      <FilterProvider>
+        <Header className="App-header"/>
+        <Navigation/>
+        <div style={{display: 'flex', maxWidth: '100vw'}}>
+          <CarList cars={cars} />
+          <VehicleSearchForm models={models}/>
+        </div>
+        <Footer/>
+      </FilterProvider>
     </div>
   );
 }
