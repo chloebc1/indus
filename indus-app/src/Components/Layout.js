@@ -4,8 +4,11 @@ import VehicleSearchForm from './VehicleSearchForm'
 import { ViewCarContext } from '../Context/ViewCarContext'
 import {useContext, useState, useEffect} from 'react'
 import axios from 'axios'
+import { LayoutContext } from '../Context/LayoutContext'
+import { Cart, Home } from './Constants'
 
 const Layout = () => {
+  const { tab } = useContext(LayoutContext)
   const { id } = useContext(ViewCarContext)
   const [cars, setCars] = useState([])
   const [models, setModels] = useState({})
@@ -31,14 +34,20 @@ const Layout = () => {
     fetchData();
   }, []);
 
+  if (tab === Home) {
+    if (id) {
+      return <CarDetail id={id}></CarDetail>
+    }
 
-  if (id) {
-    return <CarDetail id={id}></CarDetail>
+    return (<div style={{ display: 'flex', maxWidth: '100vw' }}>
+      <CarList cars={cars}/>
+      <VehicleSearchForm models={models}/>
+    </div>)
   }
 
-  return (<div style={{ display: 'flex', maxWidth: '100vw' }}>
-    <CarList cars={cars}/>
-    <VehicleSearchForm models={models}/>
-  </div>)
+  if (tab === Cart) {
+    return <Cart />
+  }
+
 }
 export default Layout

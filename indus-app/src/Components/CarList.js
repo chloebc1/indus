@@ -23,7 +23,7 @@ const CarList = ({cars}) => {
 
   return (
   <div style={{border: '1px solid black', width: '80%'}}>
-    {cars.filter(carFilter).map((car, i) => (<Car key={car.id} {...car} />))}
+    {cars.filter(carFilter).map((car, i) => (<Car key={car.id} car={car} />))}
   </div>
   )}
 

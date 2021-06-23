@@ -1,10 +1,13 @@
 import { ViewCarContext } from '../Context/ViewCarContext'
 import {useContext} from 'react'
+import { CartContext } from '../Context/CartContext'
 
-const Car = ({year, make, model, image, price, id}) => {
-
+const Car = ({car}) => {
+  const {year, make, model, image, price, id} = car
   const {setID} = useContext(ViewCarContext)
-console.log('id in Car is '+ id)
+  const {cart, addItem} = useContext(CartContext) 
+
+  console.log(cart);
 
   return (
     <div style={{display: 'flex', height: '200px', alignItems: 'center', paddingRight: '16px'}}>
@@ -25,7 +28,7 @@ console.log('id in Car is '+ id)
         color: 'white',
         padding: '16px',
         borderRadius: '4px'
-      }}>Buy</button>
+      }} onClick={() => addItem(car)}>Buy</button>
     </div>
   )
 }

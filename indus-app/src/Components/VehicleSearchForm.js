@@ -10,8 +10,8 @@ const VehicleSearchForm = ({models}) => {
       <option value="">model</option>
       {Object.entries(models).map(([make, modelList]) => {
         return (
-          <optgroup label = {make}>
-            {modelList.map(mod => <option value={mod}>{mod}</option>)}
+          <optgroup key={make} label={make}>
+            {modelList.map(mod => <option key={mod} value={mod}>{mod}</option>)}
           </optgroup>
         )
       })}

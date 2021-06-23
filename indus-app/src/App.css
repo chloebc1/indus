@@ -22,6 +22,16 @@
   background-color: #E9FFF9;
 }
 
+.detailBtn {
+  height: 40px;
+  width: 120px;
+  display: block;
+  margin: 8px auto 0;
+  background-color: #D64045;
+  color: white;
+  border-radius: 4px;
+}
+
 /* .vehicleSearchForm select {
   margin: 8px;
   border-radius: 4px;

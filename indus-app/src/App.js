@@ -2,8 +2,9 @@ import './App.css';
 import Header from './Components/Header'
 import Navigation from './Components/Navigation'
 import Footer from './Components/Footer'
-import {FilterProvider} from './Context/FilterContext'
+import { FilterProvider } from './Context/FilterContext'
 import { ViewCarProvider } from './Context/ViewCarContext'
+import { CartProvider } from './Context/CartContext'
 import Layout from './Components/Layout'
 
 function App() {
@@ -12,11 +13,14 @@ function App() {
     <div className="App">
       <FilterProvider>
         <ViewCarProvider>
-        <Header className="App-header"/>
-        <Navigation/>
-          <Layout/>
-
-        <Footer/>
+          <CartProvider>
+            <Header className="App-header"/>
+            <LayoutProvider>
+              <Navigation/>
+              <Layout/>
+            </LayoutProvider>
+            <Footer/>
+          </CartProvider>
         </ViewCarProvider>
       </FilterProvider>
     </div>
