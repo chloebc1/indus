@@ -7,7 +7,6 @@ import axios from 'axios'
 jest.mock('axios');
 
 describe('car detail', () => {
-  afterEach(cleanup);
 
   test(`should show car detail`,  async () => {
 

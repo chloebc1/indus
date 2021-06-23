@@ -7,8 +7,6 @@ const Car = ({car}) => {
   const {setID} = useContext(ViewCarContext)
   const {cart, addItem} = useContext(CartContext) 
 
-  console.log(cart);
-
   return (
     <div style={{display: 'flex', height: '200px', alignItems: 'center', paddingRight: '16px'}}>
       <img src={image} alt={model} style={{height: '100%'}}/>

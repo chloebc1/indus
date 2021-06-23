@@ -4,6 +4,7 @@ import Navigation from './Components/Navigation'
 import Footer from './Components/Footer'
 import { FilterProvider } from './Context/FilterContext'
 import { ViewCarProvider } from './Context/ViewCarContext'
+import { LayoutProvider } from './Context/LayoutContext'
 import { CartProvider } from './Context/CartContext'
 import Layout from './Components/Layout'
 
