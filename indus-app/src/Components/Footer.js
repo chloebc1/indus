@@ -1,7 +1,7 @@
 import {CompanyName} from './Constants'
 
 const Footer = () => (
-  <footer style={{border: '1px solid black'}}>
+  <footer style={{marginTop:'8px', backgroundColor:'#CECECE'}}>
     {CompanyName}
   </footer>
   )

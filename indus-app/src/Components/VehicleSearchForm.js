@@ -25,7 +25,6 @@ const VehicleSearchForm = ({models}) => {
       <option value={2019}>2019</option>
       <option value={2020}>2020</option> 
     </select>
-    <button title={Search}>{Search}</button>
   </div>)
 }
 

@@ -15,12 +15,8 @@ describe('vehicleSearchForm', () => {
       </FilterContext.Provider>
     )
   })
-  test("should display 'Search'", () => {
-    expect(screen.getByTitle(Search)).toBeInTheDocument()
-  });
   test("should display 'Model' and 'Year' drop-downs and Search button", () => {
     expect(screen.getByTitle(Model)).toBeInTheDocument()
     expect(screen.getByTitle(Year)).toBeInTheDocument()
-    expect(screen.getByTitle(Search)).toBeInTheDocument()
   });
 })

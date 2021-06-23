@@ -5,7 +5,8 @@ import { ViewCarContext } from '../Context/ViewCarContext'
 import {useContext, useState, useEffect} from 'react'
 import axios from 'axios'
 import { LayoutContext } from '../Context/LayoutContext'
-import { Cart, Home } from './Constants'
+import { CartTab, HomeTab } from './Constants'
+import Cart from './Cart'
 
 const Layout = () => {
   const { tab } = useContext(LayoutContext)
@@ -34,7 +35,7 @@ const Layout = () => {
     fetchData();
   }, []);
 
-  if (tab === Home) {
+  if (tab === HomeTab) {
     if (id) {
       return <CarDetail id={id}></CarDetail>
     }
@@ -45,7 +46,7 @@ const Layout = () => {
     </div>)
   }
 
-  if (tab === Cart) {
+  if (tab === CartTab) {
     return <Cart />
   }
 

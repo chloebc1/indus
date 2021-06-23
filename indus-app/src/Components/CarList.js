@@ -1,8 +1,8 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { FilterContext } from '../Context/FilterContext';
 import Car from './Car';
 
-const CarList = ({cars}) => {
+const CarList = React.memo(function CarList({cars}) {
   const {model, year} = useContext(FilterContext)
 
   const carFilter = (car) => {
@@ -22,9 +22,9 @@ const CarList = ({cars}) => {
   }
 
   return (
-  <div style={{border: '1px solid black', width: '80%'}}>
+  <div style={{width: '80%'}}>
     {cars.filter(carFilter).map((car, i) => (<Car key={car.id} car={car} />))}
   </div>
-  )}
+  )})
 
 export default CarList

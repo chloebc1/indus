@@ -1,7 +1,6 @@
 import { screen, render } from '@testing-library/react'
 import { CartContext } from '../Context/CartContext'
 import { ViewCarContext } from '../Context/ViewCarContext'
-import { useContext } from 'react'
 import Car from './Car'
 import {cars} from '../data.js';
 
@@ -15,7 +14,7 @@ describe('car', () => {
 
     render(
     <ViewCarContext.Provider value={{setID}}>
-      <CartContext.Provider value={{addItem}}>
+      <CartContext.Provider value={{addItem, cart:[]}}>
         <Car car={cars[0]}/>
       </CartContext.Provider>
     </ViewCarContext.Provider>
