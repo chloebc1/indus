@@ -11,12 +11,11 @@ const CarDetail = ({id}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(
+      const result = await axios.get(
         `http://localhost:5000/api/vehicles/${id}`,
       );
 
       setCar(result.data);
-
     };
 
     fetchData();

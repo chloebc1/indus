@@ -1,16 +1,35 @@
-import { screen, render } from '@testing-library/react'
-import Car from './Car'
-import {cars} from '../data.js';
+import { render, waitFor, cleanup } from '@testing-library/react'
 import CarDetail from './CarDetail'
+import { ViewCarContext } from '../Context/ViewCarContext';
+import {CartContext} from '../Context/CartContext';
+import axios from 'axios'
+
+jest.mock('axios');
 
 describe('car detail', () => {
+  afterEach(cleanup);
 
-  test(`should show car detail`, () => {
-    render(<CarDetail id={'3d63de10-ad27-4572-b1df-0e750de377fb'}/>)
-    expect(screen.getByTitle('ContactButton')).toBeInTheDocument()
-    expect(screen.getByTitle('PurchaseButton')).toBeInTheDocument()
-    expect(screen.getByText(/price/i)).toBeInTheDocument()
-    expect(screen.getByText(/year/i)).toBeInTheDocument()
+  test(`should show car detail`,  async () => {
+
+    const setID = jest.fn()
+    const addItem = jest.fn()
+    const data = {make: 'Toyota', model: 'Tundra', price: 25000, year: 2016}
+    const fakeID = 'fake-id'
+    axios.get.mockImplementationOnce(() => Promise.resolve({data}));
+    
+    const {getByText, getByTitle} = render(
+      <ViewCarContext.Provider value={{setID}}>
+        <CartContext.Provider value={{addItem}}>
+          <CarDetail id={fakeID}/>
+        </CartContext.Provider>
+      </ViewCarContext.Provider>
+    )
+    expect(getByTitle('ContactButton')).toBeInTheDocument()
+    expect(getByTitle('PurchaseButton')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(getByText(new RegExp(data.make, 'i'))).toBeInTheDocument()
+      expect(getByText(new RegExp(data.price, 'i'))).toBeInTheDocument()
+    })
 
   });
 })
