@@ -4,6 +4,7 @@ import CarDetail from './CarDetail'
 import { ViewCarContext } from '../Context/ViewCarContext';
 import {CartContext} from '../Context/CartContext';
 import axios from 'axios'
+import { MessageContext } from '../Context/MessageContext';
 
 jest.mock('axios');
 
@@ -13,6 +14,7 @@ describe('car detail', () => {
 
     const setID = jest.fn()
     const addItem = jest.fn()
+    const toggleContactModal = jest.fn()
     const data = {make: 'Toyota', model: 'Tundra', price: 25000, year: 2016}
     const fakeID = 'fake-id'
     axios.get.mockImplementationOnce(() => Promise.resolve({data}));
@@ -20,7 +22,9 @@ describe('car detail', () => {
     const {getByText, getByTitle} = render(
       <ViewCarContext.Provider value={{setID}}>
         <CartContext.Provider value={{addItem}}>
-          <CarDetail id={fakeID}/>
+          <MessageContext.Provider value={{showContactModal: false, toggleContactModal}}>
+            <CarDetail id={fakeID}/>
+          </MessageContext.Provider>
         </CartContext.Provider>
       </ViewCarContext.Provider>
     )

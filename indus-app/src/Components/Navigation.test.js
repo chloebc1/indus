@@ -27,7 +27,5 @@ describe('navigation', () => {
         expect(setTab).toHaveBeenCalledTimes(i+1)
       }
     )
-
-
   });
 })

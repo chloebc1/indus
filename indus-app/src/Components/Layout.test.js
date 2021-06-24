@@ -6,6 +6,7 @@ import Layout from './Layout'
 import axios from 'axios'
 import { CartContext } from '../Context/CartContext';
 import { FilterContext } from '../Context/FilterContext';
+import { MessageContext } from '../Context/MessageContext';
 
 jest.mock('axios');
 
@@ -21,7 +22,9 @@ describe('layout', () => {
               <ViewCarContext.Provider value={{id}}>
                   <CartContext.Provider value={{addItem, cart:[]}}>
                       <FilterContext.Provider value={{}}>
-                        <Layout />
+                        <MessageContext.Provider value={{showContactModal: false}}>
+                          <Layout />
+                        </MessageContext.Provider>
                       </FilterContext.Provider>
                   </CartContext.Provider>
               </ViewCarContext.Provider>

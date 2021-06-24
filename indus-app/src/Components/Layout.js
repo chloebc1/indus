@@ -5,8 +5,9 @@ import { ViewCarContext } from '../Context/ViewCarContext'
 import {useContext, useState, useEffect} from 'react'
 import axios from 'axios'
 import { LayoutContext } from '../Context/LayoutContext'
-import { CartTab, HomeTab } from './Constants'
+import { CartTab, HomeTab, MessagesTab } from './Constants'
 import Cart from './Cart'
+import Messages from './Messages'
 
 const Layout = () => {
   const { tab } = useContext(LayoutContext)
@@ -51,6 +52,12 @@ const Layout = () => {
   if (tab === CartTab) {
     return <Cart />
   }
+
+  if (tab === MessagesTab) {
+    return <Messages />
+  }
+
+  return <></>
 
 }
 export default Layout
