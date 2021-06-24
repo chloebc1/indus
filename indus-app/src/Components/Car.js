@@ -27,7 +27,7 @@ const Car = React.memo(function Car({car}) {
         height: '50px',
         width: '120px',
         border: '2px solid #1D3354',
-        backgroundColor: alreadyInCart ? 'gray' : '#D64045',
+        backgroundColor: alreadyInCart ? 'gray' : '#d64045',
         color: 'white',
         padding: '16px',
         borderRadius: '4px'

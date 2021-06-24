@@ -14,7 +14,7 @@ describe('car', () => {
 
     render(
     <ViewCarContext.Provider value={{setID}}>
-      <CartContext.Provider value={{addItem, cart:[]}}>
+      <CartContext.Provider value={{addItem, cart:[cars[0]]}}>
         <Car car={cars[0]}/>
       </CartContext.Provider>
     </ViewCarContext.Provider>

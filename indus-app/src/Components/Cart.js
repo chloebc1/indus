@@ -15,7 +15,7 @@ const Cart = () => {
                     <div>Model: {car.model} </div>
                     <div>Price: {car.price} </div>
                   </div>
-                  <button onClick={() => removeItem(car)} style={{marginLeft:'auto'}}>Remove Item</button>
+                  <button title={'RemoveButton'} onClick={() => removeItem(car)} style={{marginLeft:'auto'}}>Remove Item</button>
                 </div>
               </div>
           ))}

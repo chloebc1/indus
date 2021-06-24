@@ -1,4 +1,5 @@
 import { render, waitFor, cleanup } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import CarDetail from './CarDetail'
 import { ViewCarContext } from '../Context/ViewCarContext';
 import {CartContext} from '../Context/CartContext';
@@ -29,6 +30,15 @@ describe('car detail', () => {
       expect(getByText(new RegExp(data.make, 'i'))).toBeInTheDocument()
       expect(getByText(new RegExp(data.price, 'i'))).toBeInTheDocument()
     })
+
+    userEvent.click(getByTitle('PurchaseButton'))
+    expect(addItem).toHaveBeenCalledTimes(1)
+
+    userEvent.click(getByTitle('BackButton'))
+    expect(setID).toHaveBeenCalledTimes(1)
+
+
+
 
   });
 })

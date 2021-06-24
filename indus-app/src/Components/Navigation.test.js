@@ -1,10 +1,9 @@
 import { screen, render } from '@testing-library/react'
 import Navigation from './Navigation.js'
 import {HomeTab} from './Constants'
-import { FilterContext } from '../Context/FilterContext.js';
 import { LayoutContext } from '../Context/LayoutContext.js';
 import { CartContext } from '../Context/CartContext.js';
-
+import userEvent from '@testing-library/user-event'
 
 
 describe('navigation', () => {
@@ -19,5 +18,16 @@ describe('navigation', () => {
       </LayoutContext.Provider>
     )
     expect(screen.getByText(HomeTab)).toBeInTheDocument()
+
+    const tabs = screen.getAllByRole('listitem')
+
+    tabs.forEach(
+      (tab, i) => {
+        userEvent.click(tab)
+        expect(setTab).toHaveBeenCalledTimes(i+1)
+      }
+    )
+
+
   });
 })
