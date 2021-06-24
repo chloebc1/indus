@@ -2,10 +2,12 @@ import {useContext, useEffect, useState} from 'react'
 import axios from 'axios'
 import { ViewCarContext } from '../Context/ViewCarContext'
 import { CartContext } from '../Context/CartContext'
+import ContactModal from './ContactModal'
 
 const CarDetail = ({id}) => {
 
   const [car, setCar] = useState({})
+  const [showContactModal, setShowContactModal] = useState(false)
   const {setID} = useContext(ViewCarContext)
   const {addItem} = useContext(CartContext)
 
@@ -29,7 +31,7 @@ const CarDetail = ({id}) => {
       <div style={{display: 'flex'}}>
         <div>
           <img style={{display: 'block'}} src={car.image} alt={car.model} />
-          <button className="detailBtn" title='ContactButton'>Contact</button>
+          <button className="detailBtn" title='ContactButton' onClick={() => setShowContactModal(!showContactModal)}>Contact</button>
           <button className="detailBtn" title='PurchaseButton' onClick={() => addItem(car)}>Buy</button>
         </div>
         <div style={{textAlign: 'left', width: '80%', paddingLeft: '16px'}}>
@@ -45,6 +47,7 @@ const CarDetail = ({id}) => {
           Nemo praesentium reiciendis excepturi tenetur in obcaecati doloribus ex dolor minima voluptatibus! Dolorum, voluptatum quia excepturi porro vel eius dolorem cumque ab fugiat praesentium laboriosam! Iure amet nam possimus atque.</div>
         </div>
       </ div>
+      {showContactModal && <ContactModal>CONTACTING...</ContactModal>} 
     </>
   )
 }

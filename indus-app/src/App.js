@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Header from './Components/Header'
 import Navigation from './Components/Navigation'
 import Footer from './Components/Footer'
@@ -12,18 +12,18 @@ function App() {
 
   return (
     <div className="App">
-      <FilterProvider>
-        <ViewCarProvider>
-          <CartProvider>
-            <Header className="App-header"/>
-            <LayoutProvider>
-              <Navigation/>
-              <Layout/>
-            </LayoutProvider>
-            <Footer/>
+      <Header className="App-header"/>
+        <LayoutProvider>
+        <CartProvider>
+          <Navigation/>
+          <FilterProvider>
+            <ViewCarProvider>
+                <Layout/>
+            </ViewCarProvider>
+          </FilterProvider>
           </CartProvider>
-        </ViewCarProvider>
-      </FilterProvider>
+        </LayoutProvider>
+      <Footer/>
     </div>
   );
 }
