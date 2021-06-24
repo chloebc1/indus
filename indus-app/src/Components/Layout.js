@@ -16,7 +16,7 @@ const Layout = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(
+      const result = await axios.get(
         'http://localhost:5000/api/vehicles',
       );
 
@@ -32,7 +32,9 @@ const Layout = () => {
       },{}))
     };
 
-    fetchData();
+    if (tab === HomeTab && !id) {
+      fetchData();
+    }
   }, []);
 
   if (tab === HomeTab) {

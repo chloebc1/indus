@@ -42,17 +42,17 @@ describe('car list', () => {
 
     renderPage(undefined,testCars[0].year)
 
-    expect(screen.queryByTestId(testCars[0].id)).toBeInTheDocument()
-    expect(screen.queryByTestId(testCars[1].id)).not.toBeInTheDocument()
-    expect(screen.queryByTestId(testCars[2].id)).not.toBeInTheDocument()
+    expect(screen.queryByTestId('car-'+ testCars[0].id)).toBeInTheDocument()
+    expect(screen.queryByTestId('car-'+ testCars[1].id)).not.toBeInTheDocument()
+    expect(screen.queryByTestId('car-'+ testCars[2].id)).not.toBeInTheDocument()
   });
 
   test(`should display specific car make and year`, () => {
 
     renderPage(testCars[1].model, testCars[2].year)
 
-    expect(screen.queryByTestId(testCars[0].id)).not.toBeInTheDocument()
-    expect(screen.queryByTestId(testCars[1].id)).not.toBeInTheDocument()
-    expect(screen.queryByTestId(testCars[2].id)).toBeInTheDocument()
+    expect(screen.queryByTestId('car-'+ testCars[0].id)).not.toBeInTheDocument()
+    expect(screen.queryByTestId('car-'+ testCars[1].id)).not.toBeInTheDocument()
+    expect(screen.queryByTestId('car-'+ testCars[2].id)).toBeInTheDocument()
   });
 })

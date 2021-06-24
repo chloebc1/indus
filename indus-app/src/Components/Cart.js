@@ -19,7 +19,7 @@ const Cart = () => {
                 </div>
               </div>
           ))}
-          <button className= 'detailBtn'>Purchase</button>
+          <button title = 'PurchaseButton' className= 'detailBtn'>Purchase</button>
       </div>
 
     )

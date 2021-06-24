@@ -23,7 +23,7 @@ const CarList = React.memo(function CarList({cars}) {
 
   return (
   <div style={{width: '80%'}}>
-    {cars.filter(carFilter).map((car, i) => (<div data-testid={car.id}key={car.id} ><Car  car={car} /></div>))}
+    {cars.filter(carFilter).map((car, i) => (<div data-testid={'car-' + car.id}key={car.id} ><Car  car={car} /></div>))}
   </div>
   )})
 

@@ -1,4 +1,4 @@
-import { render, waitFor, cleanup } from '@testing-library/react'
+import { render, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CarDetail from './CarDetail'
 import { ViewCarContext } from '../Context/ViewCarContext';
@@ -36,9 +36,5 @@ describe('car detail', () => {
 
     userEvent.click(getByTitle('BackButton'))
     expect(setID).toHaveBeenCalledTimes(1)
-
-
-
-
   });
 })
