@@ -3,7 +3,7 @@ import { MessageContext } from '../Context/MessageContext';
 import Messages from './Messages';
 
 describe('Messages', () => {
-  test("should display messages", () => {
+  test("should display 'no messages' text", () => {
     render(
         <MessageContext.Provider value={{messages: []}}>
             <Messages />
